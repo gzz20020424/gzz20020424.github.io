@@ -6,7 +6,7 @@
   <link href="http://gzz20020424.github.io/atom.xml" rel="self"/>
   
   <link href="http://gzz20020424.github.io/"/>
-  <updated>2022-05-10T05:04:30.059Z</updated>
+  <updated>2022-05-10T14:15:29.364Z</updated>
   <id>http://gzz20020424.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://gzz20020424.github.io/2022/05/10/test/"/>
+    <id>http://gzz20020424.github.io/2022/05/10/test/</id>
+    <published>2022-05-10T14:15:29.000Z</published>
+    <updated>2022-05-10T14:15:29.364Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>三次握手和四次挥手</title>
