@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <meta name="keywords" content="链路层和局域网, gzz20020424">
     <meta name="description" content="第六章 链路层和局域网本文基于中科大计算机网络自顶向下课程主要记录我在学习链路层和局域网过程中不理解及易混淆的知识点
+
 链路层概述重要概念：
 节点
 链路
 链路层帧不同层次解决的功能：
-链路层：一个节点传到另外一个节点的功能；回顾节点的概念：主">
+链路层：一个节点传到另外一个节点的功能；回顾节点的概念：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -489,14 +490,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    381
+                    917
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -520,6 +521,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="第六章-链路层和局域网"><a href="#第六章-链路层和局域网" class="headerlink" title="第六章 链路层和局域网"></a>第六章 链路层和局域网</h1><p>本文基于中科大计算机网络自顶向下课程主要记录我在学习链路层和局域网过程中不理解及易混淆的知识点</p>
+<hr>
 <h2 id="链路层概述"><a href="#链路层概述" class="headerlink" title="链路层概述"></a>链路层概述</h2><h3 id="重要概念："><a href="#重要概念：" class="headerlink" title="重要概念："></a>重要概念：</h3><ul>
 <li>节点</li>
 <li>链路</li>
@@ -531,6 +533,7 @@
 </ul>
 <h3 id="链路层和网络层关联"><a href="#链路层和网络层关联" class="headerlink" title="链路层和网络层关联"></a>链路层和网络层关联</h3><p>旅行社（网络层中路由选择协议）为游客（数据报）制定了运输方式（链路层协议），走不同运输区段（链路）。该游客坐在不同交通工具中，被（封装）在不同的帧中。</p>
 <h3 id="链路层提供的服务"><a href="#链路层提供的服务" class="headerlink" title="链路层提供的服务"></a>链路层提供的服务</h3><p><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511152556.png"></p>
+<hr>
 <p>链路层服务（拓展）：</p>
 <ul>
 <li>流量控制：发送和接收方节点速率匹配</li>
@@ -542,8 +545,22 @@
 </ul>
 </li>
 </ul>
-<h3 id="链路层在何处实现"><a href="#链路层在何处实现" class="headerlink" title="链路层在何处实现"></a>链路层在何处实现</h3><p>在<strong>网络适配器</strong>实现的，也称<strong>网络接口卡</strong>。<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511152638.png"></p>
-<h2 id="差错检测和纠正技术"><a href="#差错检测和纠正技术" class="headerlink" title="差错检测和纠正技术"></a>差错检测和纠正技术</h2><h2 id="多路访问链路和协议"><a href="#多路访问链路和协议" class="headerlink" title="多路访问链路和协议"></a>多路访问链路和协议</h2><h2 id="交换局域网"><a href="#交换局域网" class="headerlink" title="交换局域网"></a>交换局域网</h2><h2 id="链路虚拟化"><a href="#链路虚拟化" class="headerlink" title="链路虚拟化"></a>链路虚拟化</h2>
+<h3 id="链路层在何处实现"><a href="#链路层在何处实现" class="headerlink" title="链路层在何处实现"></a>链路层在何处实现</h3><p>在<strong>网络适配器</strong>实现的，也称<strong>网络接口卡</strong>。<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511152638.png"><br>位于网络适配器核心的是<strong>链路层控制器</strong>，通常是一个实现了许多链路层服务的专用芯片。</p>
+<h2 id="差错检测和纠正技术"><a href="#差错检测和纠正技术" class="headerlink" title="差错检测和纠正技术"></a>差错检测和纠正技术</h2><p><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511201728.png"><br>使用<strong>检测和纠正比特（EDC)<strong>来增强数据D，要保护的数据包括</strong>网络层传递下来需要通过链路传输的数据报</strong>和<strong>链路帧首部中的寻址信息，序号和其他字段</strong><br>只能检测出是否出现差错，有可能由<strong>未检出比特差错</strong>。一般差错检测技术越复杂，开销越大，应找到二者平衡。<br>以下三种检测差错技术：<strong>奇偶校验（基本思想），检验和方法（多用于运输层），循环冗余检测（多用于适配器中的链路层）</strong></p>
+<h3 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h3><ul>
+<li>最简单的方式：加一个<strong>奇偶校验位</strong>，使1的个数为偶数，接收方数一数1的个数是否为奇还是偶。如果1的个数为奇/偶说明？<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511203119.png"></li>
+<li>使用<strong>二维奇偶校验</strong>，实际上是从横向和纵向判断1奇偶的个数，某个位置出错，可以定位错误位置，但是出现<strong>对偶校验</strong>是无法判断的。<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511204339.png"></li>
+</ul>
+<h3 id="检验和方法"><a href="#检验和方法" class="headerlink" title="检验和方法"></a>检验和方法</h3><p>如6-4中d比特数据作为k比特整数的序列处理，简单的校验和是将k比特相加，用该和作为差错检测比特（如因特网中的checksum此处不再赘述）</p>
+<h3 id="循环冗余检测（CRC）"><a href="#循环冗余检测（CRC）" class="headerlink" title="循环冗余检测（CRC）"></a>循环冗余检测（CRC）</h3><p>也称为<strong>多项式编码</strong>。CRC运算采用<strong>模2算术</strong>，即<strong>加法不进位，减法不借位</strong>，实际上与<strong>异或</strong>运算相同。<br>首先明确几个概念：</p>
+<ul>
+<li>考虑d位的数据D</li>
+<li>生成多项式：双方约定的r次方，r+1比特的模式，记为G</li>
+<li>模2运算<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511204931.png"></li>
+<li>位串的两种表示形式：位或者多项式</li>
+<li>r个比特的冗余位附在D后，记为R<br>该检测的方法：发送方在D后附上r位冗余位，使得接收方除G（r+1位）能整除。注意到G是双方约定的，我们只需要<strong>找到R位冗余位</strong>。<br>此处关于R的推导略过<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511212040.png"></li>
+</ul>
+<h2 id="多路访问链路和协议"><a href="#多路访问链路和协议" class="headerlink" title="多路访问链路和协议"></a>多路访问链路和协议</h2><h2 id="交换局域网"><a href="#交换局域网" class="headerlink" title="交换局域网"></a>交换局域网</h2><h2 id="链路虚拟化"><a href="#链路虚拟化" class="headerlink" title="链路虚拟化"></a>链路虚拟化</h2>
                 
             </div>
             <hr/>
@@ -1087,7 +1104,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">3.4k</span>
+                        class="white-color">3.9k</span>
             
             
             
