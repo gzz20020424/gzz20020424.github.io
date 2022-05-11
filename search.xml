@@ -125,7 +125,7 @@ std<span class="token double-colon punctuation">::</span>cout <span class="token
     <title>三次握手和四次挥手</title>
     <url>/2022/05/09/san-ci-wo-shou-he-si-ci-hui-shou/</url>
     <content><![CDATA[<h1 id="TCP管理连接"><a href="#TCP管理连接" class="headerlink" title="TCP管理连接"></a>TCP管理连接</h1><p>首先我们知道TCP被称为<strong>面向连接的</strong>，因为一个进程向另一个进程发送数据前，两个进程需要先互相握手，即先发送某些预备报文段，例如序列号，确认号等后续将会提到。</p>
-<h2 id="所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解："><a href="#所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解：" class="headerlink" title="所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解："></a>所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解：</h2><p><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511101142.png"></p>
+<h2 id="所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解："><a href="#所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解：" class="headerlink" title="所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解："></a>所谓的三次握手即TCP连接的建立。这个连接必须是一方主动打开，另一方被动打开的。以下为客户端主动发起连接的图解：</h2><p><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511152426.png"></p>
 <h3 id="以下是TCP建立连接的步骤：（同时我们会引入TCP状态的概念并以客户TCP经历的状态说明）"><a href="#以下是TCP建立连接的步骤：（同时我们会引入TCP状态的概念并以客户TCP经历的状态说明）" class="headerlink" title="以下是TCP建立连接的步骤：（同时我们会引入TCP状态的概念并以客户TCP经历的状态说明）"></a>以下是TCP建立连接的步骤：（同时我们会引入<strong>TCP状态</strong>的概念并以客户TCP经历的状态说明）</h3><ul>
 <li><p>第一步：客户端原来处于<strong>CLOSE</strong>状态，客户端向服务器端发送一个特殊TCP报文段，不包含应用层数据，但是其中<strong>SYN比特被置为1</strong>，另外客户会随机选择一个<strong>初始序号（client_isn)<strong>，放在报文段的序号字段中，封装成IP数据报，为防止攻击，有许多有趣的研究初始化client_isn。第一步后，变成了</strong>SYN_SENT状态</strong>。</p>
 </li>
@@ -155,6 +155,43 @@ std<span class="token double-colon punctuation">::</span>cout <span class="token
         <tag>TCP连接</tag>
         <tag>计算机网络</tag>
         <tag>三次握手四次挥手</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链路层和局域网</title>
+    <url>/2022/05/11/lian-lu-ceng-he-ju-yu-wang/</url>
+    <content><![CDATA[<h1 id="第六章-链路层和局域网"><a href="#第六章-链路层和局域网" class="headerlink" title="第六章 链路层和局域网"></a>第六章 链路层和局域网</h1><p>本文基于中科大计算机网络自顶向下课程主要记录我在学习链路层和局域网过程中不理解及易混淆的知识点</p>
+<h2 id="链路层概述"><a href="#链路层概述" class="headerlink" title="链路层概述"></a>链路层概述</h2><h3 id="重要概念："><a href="#重要概念：" class="headerlink" title="重要概念："></a>重要概念：</h3><ul>
+<li>节点</li>
+<li>链路</li>
+<li>链路层帧<h3 id="不同层次解决的功能："><a href="#不同层次解决的功能：" class="headerlink" title="不同层次解决的功能："></a>不同层次解决的功能：</h3></li>
+<li>链路层：一个节点传到另外一个节点的功能；回顾<strong>节点</strong>的概念：主机，路由器，交换机和WiFi接入点。</li>
+<li>网络层：<strong>端到端传输</strong>的功能</li>
+<li>传输层：<strong>进程到进程</strong>的区分，并实现协议使不可靠传输变成<strong>可靠传输</strong>。</li>
+<li>应用层：交换报文实现<strong>网络应用</strong></li>
+</ul>
+<h3 id="链路层和网络层关联"><a href="#链路层和网络层关联" class="headerlink" title="链路层和网络层关联"></a>链路层和网络层关联</h3><p>旅行社（网络层中路由选择协议）为游客（数据报）制定了运输方式（链路层协议），走不同运输区段（链路）。该游客坐在不同交通工具中，被（封装）在不同的帧中。</p>
+<h3 id="链路层提供的服务"><a href="#链路层提供的服务" class="headerlink" title="链路层提供的服务"></a>链路层提供的服务</h3><p><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511152556.png"></p>
+<p>链路层服务（拓展）：</p>
+<ul>
+<li>流量控制：发送和接收方节点速率匹配</li>
+<li>错误检测：<ul>
+<li>由信号噪声和衰减引起</li>
+<li>接收方检测出的错误：通知发送方重传</li>
+<li>差错纠正：接收端检查纠正bit错误，不要重传</li>
+<li>半双工和全双工</li>
+</ul>
+</li>
+</ul>
+<h3 id="链路层在何处实现"><a href="#链路层在何处实现" class="headerlink" title="链路层在何处实现"></a>链路层在何处实现</h3><p>在<strong>网络适配器</strong>实现的，也称<strong>网络接口卡</strong>。<br><img src="https://raw.githubusercontent.com/gzz20020424/blog-img/main/20220511152638.png"></p>
+<h2 id="差错检测和纠正技术"><a href="#差错检测和纠正技术" class="headerlink" title="差错检测和纠正技术"></a>差错检测和纠正技术</h2><h2 id="多路访问链路和协议"><a href="#多路访问链路和协议" class="headerlink" title="多路访问链路和协议"></a>多路访问链路和协议</h2><h2 id="交换局域网"><a href="#交换局域网" class="headerlink" title="交换局域网"></a>交换局域网</h2><h2 id="链路虚拟化"><a href="#链路虚拟化" class="headerlink" title="链路虚拟化"></a>链路虚拟化</h2>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+        <tag>链路层</tag>
+        <tag>局域网</tag>
       </tags>
   </entry>
 </search>
