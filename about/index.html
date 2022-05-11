@@ -379,14 +379,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">1</a></span>
+    <span class="count"><a href="/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">1</a></span>
+    <span class="count"><a href="/tags">5</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -409,14 +409,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">1</a></span>
+    <span class="count"><a href="/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">1</a></span>
+    <span class="count"><a href="/tags">5</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -560,7 +560,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,1,0,2],
+                data: [0,0,0,0,0,0,0,0,0,1,1,0,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -602,7 +602,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"计算机网络","value":1}],
+                data: [{"name":"C++","value":1},{"name":"计算机网络","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -626,7 +626,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["TCP连接"]
+                data: ["C++","《C++ Primer》","TCP连接","计算机网络","三次握手四次挥手"]
             }
         ],
         yAxis: [
@@ -639,7 +639,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [1],
+                data: [1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -809,8 +809,32 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/C/">
+                <span class="chip center-align waves-effect waves-light chip-default">C++</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E3%80%8AC-Primer%E3%80%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">《C++ Primer》</span>
+            </a>
+            
+            
+            
             <a href="/tags/TCP%E8%BF%9E%E6%8E%A5/">
                 <span class="chip center-align waves-effect waves-light chip-default">TCP连接</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                <span class="chip center-align waves-effect waves-light chip-default">计算机网络</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">三次握手四次挥手</span>
             </a>
             
             
@@ -944,7 +968,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">123</span>
+                        class="white-color">3k</span>
             
             
             
